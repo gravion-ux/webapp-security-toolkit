@@ -1,0 +1,10 @@
+node_modules/
+wsat-report/
+wsat-demo-report/
+*.log
+.DS_Store
+.env
+.env.local
+*.pem
+*.key
+*.crt

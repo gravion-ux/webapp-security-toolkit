@@ -1,0 +1,28 @@
+{
+  "tool": "webapp-security-toolkit",
+  "generatedAt": "2026-10-11T16:11:26.852Z",
+  "meta": {
+    "target": "http://127.0.0.1:1/",
+    "generatedAt": "2026-10-11T16:11:26.852Z"
+  },
+  "severitySummary": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "INFO": 1
+  },
+  "findings": [
+    {
+      "id": "SCOPE-REFUSED",
+      "title": "Assessment refused by scope guard",
+      "severity": "INFO",
+      "category": "scope",
+      "evidence": "loopback address \"127.0.0.1\" blocked (set --allow-loopback to permit)",
+      "remediation": "Only assess hosts you are explicitly authorized to test. Use the `--allow-private` / `--allow-loopback` flags for local targets.",
+      "observedValue": null,
+      "url": "http://127.0.0.1:1/",
+      "tool": "wsat"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "webapp-security-toolkit",
+  "version": "1.0.0",
+  "description": "Authorized web application and API security assessment toolkit with header analysis, TLS configuration checks, scope enforcement, and structured findings reporting.",
+  "main": "src/index.js",
+  "bin": {
+    "wsat": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test test/scope.test.js test/headers.test.js test/tls.test.js test/findings.test.js test/cli.test.js",
+    "demo": "node src/cli.js demo",
+    "scan": "node src/cli.js scan"
+  },
+  "keywords": [
+    "security",
+    "appsec",
+    "headers",
+    "tls",
+    "owasp",
+    "pentest",
+    "red-team",
+    "audit"
+  ],
+  "author": "Priyanshu Kumar Thakur (Gravion)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "src/",
+    "test/",
+    "LICENSE",
+    "README.md"
+  ]
+}
