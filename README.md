@@ -1,5 +1,9 @@
 # Web Application Security Assessment Toolkit (WSAT)
 
+![Demo](docs/demo.png)
+
+*Running an authorised assessment check.*
+
 A focused, **authorized-only** security assessment toolkit for web applications and APIs.
 Built for security engineers running internal pre-production checks, security champions reviewing
 their own services, and engineers who want a transparent baseline of HTTP-header hygiene and
