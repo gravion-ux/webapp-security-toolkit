@@ -1,5 +1,7 @@
 # Web Application Security Assessment Toolkit (WSAT)
 
+[![CI](https://github.com/gravion-ux/webapp-security-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/gravion-ux/webapp-security-toolkit/actions/workflows/ci.yml)
+
 ![Demo](docs/demo.png)
 
 *Running an authorised assessment check.*
