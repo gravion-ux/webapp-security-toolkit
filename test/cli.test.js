@@ -35,10 +35,21 @@ test('CLI: scan against a disallowed URL exits 1 with a scope refusal', () => {
   // Without --allow-private/--allow-loopback, 127.0.0.1 must be refused at the
   // scope layer (assess() returns ok=false) which the CLI surfaces as exit 1.
   // Missing --url is the only case that exits 2.
-  const r = run(['scan', '--url', 'http://127.0.0.1:1/']);
+  //
+  // The output directory is a temporary one, so the run never writes into the
+  // repository, and the refusal itself is checked rather than assumed.
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'wsat-test-'));
+  const r = run(['scan', '--url', 'http://127.0.0.1:1/', '--out', tmp]);
   assert.equal(r.status, 1, `expected exit 1, got ${r.status}; stderr=${r.stderr}`);
-  // status file should still have been written? — no, because result.ok was false;
-  // CLI returns 1 without calling ensureOutDir in that branch. Verify no files leaked.
+
+  const reportPath = path.join(tmp, 'findings.json');
+  assert.ok(fs.existsSync(reportPath), 'the refusal must be reported to the operator');
+  const json = JSON.parse(fs.readFileSync(reportPath, 'utf-8'));
+  assert.ok(Array.isArray(json.findings));
+  assert.ok(
+    json.findings.some((f) => f.id === 'SCOPE-REFUSED'),
+    'the report must carry the scope refusal',
+  );
 });
 
 test('CLI: scan with --url flag validates and exercises the assessor', () => {
